@@ -190,6 +190,7 @@
     <Content Include="Views\Pagamenti\Create.cshtml" />
     <Content Include="Views\Pagamenti\Edit.cshtml" />
     <Content Include="Views\Pagamenti\Delete.cshtml" />
+    <Content Include="Views\Dipendente\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

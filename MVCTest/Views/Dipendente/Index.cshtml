@@ -4,13 +4,13 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Lista dipenenti</h2>
+<h2 class="text-light me-2">Lista dipenenti</h2>
 
-<p>
+<p class="">
     @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-sm btn-outline-secondary" })
 </p>
 <div class="row">
-    @foreach (var item in Model)
+    @foreach (MVCTest.Models.Dipendente item in Model)
     {
         <div class="col-md-4">
             <div class="card my-3 rounded-0 border-0 shadow-sm">
@@ -29,7 +29,7 @@
                         @Html.ActionLink("Cancella", "Delete", new { id = item.DipendenteID }, new { @class = "btn btn-sm btn-outline-danger" })
                     </div>
                 </div>
-            </div>
+            </div> 
         </div>
     }
 </div>

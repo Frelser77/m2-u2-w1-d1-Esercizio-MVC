@@ -4,27 +4,27 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Cancella un pagamento</h2>
+<h2 class="text-light">Cancella un pagamento</h2>
 
-<h3>Sei sicuro di voler cancellare questo?</h3>
+<h3 class="text-danger">Sei sicuro di voler cancellare questo pagamento?</h3>
 
 <div class="card">
     <div class="card-header">
         <h4>Pagamento @Model.PagamentoID</h4>
     </div>
     <div class="card-body">
-        <p class="card-text"><strong>Periodo Inizio:</strong> @Model.PeriodoPagamentoInizio.ToShortDateString()</p>
-        <p class="card-text"><strong>Periodo Fine:</strong> @Model.PeriodoPagamentoFine.ToShortDateString()</p>
-        <p class="card-text"><strong>Ammontare:</strong> @Model.Ammontare.ToString("C")</p>
-        <p class="card-text"><strong>Tipo:</strong> @Model.Tipo</p>
-        <p class="card-text"><strong>ID Dipendente:</strong> @Model.DipendenteID</p>
+        <p class="card-text">Periodo Inizio: @Model.PeriodoPagamentoInizio.ToShortDateString()</p>
+        <p class="card-text">Periodo Fine: @Model.PeriodoPagamentoFine.ToShortDateString()</p>
+        <p class="card-text">Ammontare: @Model.Ammontare.ToString("C")</p>
+        <p class="card-text">Tipo: @Model.Tipo</p>
+        <p class="card-text">ID Dipendente: @Model.DipendenteID</p>
 
         @using (Html.BeginForm())
         {
             @Html.AntiForgeryToken()
             <div class="form-group">
-                <input type="submit" value="Cancella" class="btn btn-danger" />
-                @Html.ActionLink("Annulla", "Index", null, new { @class = "btn btn-secondary" })
+                <input type="submit" value="Cancella" class="btn btn-outline-danger" />
+                @Html.ActionLink("Annulla", "Index", null, new { @class = "btn btn-outline-secondary" })
             </div>
         }
     </div>

@@ -1,0 +1,37 @@
+﻿@model MVCTest.Models.Dipendente
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2 class="text-light">Delete</h2>
+
+<h3 class="text-danger">Sei sicuro di voler cancellare questi utente?</h3>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <h4>Dipendente</h4>
+            <div class="card my-2 rounded-0 border-0 shadow-sm">
+                <div class="card-body">
+                    <h4 class="card-title">Dettagli del dipendente</h4>
+                    <p class="fw-semibold">Nome: @Html.DisplayFor(model => model.Nome)</p>
+                    <p class="fw-semibold">Cognome: @Html.DisplayFor(model => model.Cognome)</p>
+                    <p class="fw-semibold">Indirizzo @Html.DisplayFor(model => model.Indirizzo)</p>
+                    <p class="fw-semibold">Codice Fiscale: @Html.DisplayFor(model => model.CodiceFiscale)</p>
+                    <p class="fw-semibold">Coniugato: @Html.DisplayFor(model => model.Coniugato)</p>
+                    <p class="fw-semibold">Numero Figli: @Html.DisplayFor(model => model.NumeroFigli)</p>
+                    <p class="fw-semibold">Mansione: @Html.DisplayFor(model => model.Mansione)</p>
+                </div>
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="card-footer">
+                        <input type="submit" value="Delete" class="btn btn-danger" />
+                        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-secondary" })
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
