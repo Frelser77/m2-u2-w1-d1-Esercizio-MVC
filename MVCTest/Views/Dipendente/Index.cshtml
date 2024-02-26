@@ -1,0 +1,35 @@
+﻿@model IEnumerable<MVCTest.Models.Dipendente>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Lista dipenenti</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-sm btn-outline-secondary" })
+</p>
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4">
+            <div class="card my-3 rounded-0 border-0 shadow-sm">
+                <div class="card-header">
+                    @Html.DisplayFor(modelItem => item.Nome, new {@class = "fw-bold fs-5"}) @Html.DisplayFor(modelItem => item.Cognome, new { @class = "fw-bold fs-5" })
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Indirizzo: @Html.DisplayFor(modelItem => item.Indirizzo)</p>
+                    <p class="card-text">Codice Fiscale: @Html.DisplayFor(modelItem => item.CodiceFiscale)</p>
+                    <p class="card-text">Coniugato: @(item.Coniugato ? "Sì" : "No")</p>
+                    <p class="card-text">Numero Figli: @Html.DisplayFor(modelItem => item.NumeroFigli)</p>
+                    <p class="card-text">Mansione: @Html.DisplayFor(modelItem => item.Mansione)</p>
+                    <div class="btn-group">
+                        @Html.ActionLink("Modifica", "Edit", new { id = item.DipendenteID }, new { @class = "btn btn-sm btn-outline-secondary" })
+                        @Html.ActionLink("Dettagli", "Details", new { id = item.DipendenteID }, new { @class = "btn btn-sm btn-outline-secondary" })
+                        @Html.ActionLink("Cancella", "Delete", new { id = item.DipendenteID }, new { @class = "btn btn-sm btn-outline-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
