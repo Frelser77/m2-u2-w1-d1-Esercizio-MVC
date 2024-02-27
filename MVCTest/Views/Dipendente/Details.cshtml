@@ -1,7 +1,7 @@
 ﻿@model MVCTest.Models.Dipendente
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Dipendenti";
 }
 
 <h2 class="text-light">Dettagli del Dipendente</h2>
@@ -9,8 +9,9 @@
     <div class="row">
         <div class="col-md-4">
             <div class="card my-3 rounded-0 border-0 shadow-sm">
-                <div class="card-header border-0">
+                <div class="card-header border-0 d-flex align-items-center justify-content-between">
                     <h5 class="card-title fw-bold">@Model.Nome @Model.Cognome</h5>
+                    <span class="badge bg-secondary">#@Model.DipendenteID</span>
                 </div>
                 <div class="card-body">
                     <p class="card-text fw-semibold">Indirizzo: @Model.Indirizzo</p>
@@ -19,11 +20,13 @@
                     <p class="card-text fw-semibold">Numero Figli: @Model.NumeroFigli</p>
                     <p class="card-text fw-semibold">Mansione: @Model.Mansione</p>
                 </div>
-                <div class="card-footer border-0">
-                    @Html.ActionLink("Modifica", "Edit", new { id = Model.DipendenteID }, new { @class = "btn btn-secondary" })
-                    @Html.ActionLink("Torna alla lista", "Index", null, new { @class = "btn btn-secondary" })
+                    <div class="card-footer btn-group border-0">
+                        @Html.ActionLink("Modifica", "Edit", new { id = Model.DipendenteID }, new { @class = "btn btn-sm btn-outline-secondary hvr my-2" })
+                </div>
+                </div>
+                <div class="mt-3">
+                    @Html.ActionLink("Torna alla lista", "Index", null, new { @class = "nav-link text-light my-2" })
                 </div>
             </div>
-        </div>
     </div>
 </div>

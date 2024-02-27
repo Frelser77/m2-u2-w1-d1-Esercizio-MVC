@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<MVCTest.Models.Dipendente>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Dipendenti";
 }
 
 <h2 class="text-light me-2">Lista dipenenti</h2>
@@ -14,19 +14,20 @@
     {
         <div class="col-md-4">
             <div class="card my-3 rounded-0 border-0 shadow-sm">
-                <div class="card-header">
-                    @Html.DisplayFor(modelItem => item.Nome, new {@class = "fw-bold fs-5"}) @Html.DisplayFor(modelItem => item.Cognome, new { @class = "fw-bold fs-5" })
+                <div class="card-header d-flex align-items-center justify-content-between">
+                    <h5>@Html.DisplayFor(modelItem => item.Nome, new { @class = "fw-bold fs-5" }) @Html.DisplayFor(modelItem => item.Cognome, new { @class = "fw-bold fs-5" }) </h5>
+                    <span class="badge bg-secondary">#@Html.DisplayFor(modelItem => item.DipendenteID, new { @class = "fw-bold fs-5" }) </span>
                 </div>
                 <div class="card-body">
-                    <p class="card-text">Indirizzo: @Html.DisplayFor(modelItem => item.Indirizzo)</p>
-                    <p class="card-text">Codice Fiscale: @Html.DisplayFor(modelItem => item.CodiceFiscale)</p>
-                    <p class="card-text">Coniugato: @(item.Coniugato ? "Sì" : "No")</p>
-                    <p class="card-text">Numero Figli: @Html.DisplayFor(modelItem => item.NumeroFigli)</p>
-                    <p class="card-text">Mansione: @Html.DisplayFor(modelItem => item.Mansione)</p>
+                    <p class="card-text"><strong>Indirizzo:</strong> @Html.DisplayFor(modelItem => item.Indirizzo)</p>
+                    <p class="card-text"><strong>Codice Fiscale:</strong> @Html.DisplayFor(modelItem => item.CodiceFiscale)</p>
+                    <p class="card-text"><strong>Coniugato:</strong> @(item.Coniugato ? "Sì" : "No")</p>
+                    <p class="card-text"><strong>Numero Figli:</strong> @Html.DisplayFor(modelItem => item.NumeroFigli)</p>
+                    <p class="card-text"><strong>Mansione:</strong> @Html.DisplayFor(modelItem => item.Mansione)</p>
                     <div class="btn-group">
-                        @Html.ActionLink("Modifica", "Edit", new { id = item.DipendenteID }, new { @class = "btn btn-sm btn-outline-secondary" })
-                        @Html.ActionLink("Dettagli", "Details", new { id = item.DipendenteID }, new { @class = "btn btn-sm btn-outline-secondary" })
-                        @Html.ActionLink("Cancella", "Delete", new { id = item.DipendenteID }, new { @class = "btn btn-sm btn-outline-danger" })
+                        @Html.ActionLink("Modifica", "Edit", new { id = item.DipendenteID }, new { @class = "btn btn-sm btn-outline-secondary hvr" })
+                        @Html.ActionLink("Dettagli", "Details", new { id = item.DipendenteID }, new { @class = "btn btn-sm btn-outline-secondary hvr" })
+                        @Html.ActionLink("Cancella", "Delete", new { id = item.DipendenteID }, new { @class = "btn btn-sm btn-outline-danger hvr" })
                     </div>
                 </div>
             </div> 

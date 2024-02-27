@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Configuration;
 using System.Data.SqlClient;
@@ -9,19 +10,35 @@ namespace MVCTest.Models
     // classe per la gestione dei dipendenti nel database
     public class Dipendente
     {
+        [Key]
         [Display(Name = "Numero Dipendente")]
         public int DipendenteID { get; set; }
+
+        [Required(ErrorMessage = "Il campo Nome è obbligatorio.")]
+        [StringLength(50, ErrorMessage = "Il nome non può superare i 50 caratteri.")]
         public string Nome { get; set; }
+
+        [Required(ErrorMessage = "Il campo Cognome è obbligatorio.")]
+        [StringLength(50, ErrorMessage = "Il cognome non può superare i 50 caratteri.")]
         public string Cognome { get; set; }
+
+        [StringLength(100, ErrorMessage = "L'indirizzo non può superare i 100 caratteri.")]
         public string Indirizzo { get; set; }
+
+        [Required(ErrorMessage = "Il campo Codice Fiscale è obbligatorio.")]
+        [StringLength(16, ErrorMessage = "Il codice fiscale deve essere di 16 caratteri.", MinimumLength = 16)]
         public string CodiceFiscale { get; set; }
 
         [Display(Name = "Sei coniugato?")]
-
         public bool Coniugato { get; set; }
 
         [Display(Name = "Figli a carico")]
+        [Range(0, int.MaxValue, ErrorMessage = "Il numero di figli deve essere un numero positivo.")]
+        [DefaultValue(0)]
         public int NumeroFigli { get; set; }
+
+        [Required(ErrorMessage = "Il campo Mansione è obbligatorio.")]
+        [StringLength(100, ErrorMessage = "La mansione non può superare i 100 caratteri.")]
         public string Mansione { get; set; }
 
         private readonly string connectionString = ConfigurationManager.ConnectionStrings["GestionaleEdile"].ConnectionString;

@@ -18,3 +18,25 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.btn-outline-secondary {
+    color: #fff;
+}
+
+.btn-outline-secondary.hvr{
+    color: #000;
+}
+
+.btn-group .hvr:hover {
+    z-index: 2;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+.nav-link.linkhvr {
+    color: #fff;
+}
+
+.nav-link.linkhvr:hover {
+    color: #1656fc;
+}

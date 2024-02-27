@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<MVCTest.Models.Pagamento>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Pagamenti";
 }
 
 <h2 class="text-light">Tutti i pagamenti</h2>
@@ -14,19 +14,20 @@
         {
             <div class="col-md-4">
                 <div class="card my-3 rounded-0 border-0 shadow-sm">
-                    <div class="card-header fw-bold fs-5">
-                        Pagamento @item.PagamentoID
+                    <div class="card-header d-flex align-items-center justify-content-between">
+                        <h5> Pagamento </h5>
+                        <span class="badge bg-secondary">#@item.PagamentoID </span>
                     </div>
                     <div class="card-body">
-                        <p class="card-text">Periodo: @item.PeriodoPagamentoInizio.ToShortDateString() - @item.PeriodoPagamentoFine.ToShortDateString()</p>
-                        <p class="card-text">Ammontare: @item.Ammontare</p>
-                        <p class="card-text">Tipo: @item.Tipo</p>
-                        <p class="card-text">Dipendente ID: @item.DipendenteID</p>
+                        <p class="card-text"><strong>Periodo:</strong> @item.PeriodoPagamentoInizio.ToShortDateString() - @item.PeriodoPagamentoFine.ToShortDateString()</p>
+                        <p class="card-text"><strong>Ammontare:</strong> @item.Ammontare</p>
+                        <p class="card-text"><strong>Tipo:</strong> @item.Tipo</p>
+                        <p class="card-text"><strong>Dipendente ID:</strong> @item.DipendenteID</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
-                                @Html.ActionLink("Modifica", "Edit", new { id = item.PagamentoID }, new { @class = "btn btn-sm btn-outline-secondary" })
-                                @Html.ActionLink("Dettagli", "Details", new { id = item.PagamentoID }, new { @class = "btn btn-sm btn-outline-secondary" })
-                                @Html.ActionLink("Cancella", "Delete", new { id = item.PagamentoID }, new { @class = "btn btn-sm btn-outline-danger" })
+                                @Html.ActionLink("Modifica", "Edit", new { id = item.PagamentoID }, new { @class = "btn btn-sm btn-outline-secondary hvr" })
+                                @Html.ActionLink("Dettagli", "Details", new { id = item.PagamentoID }, new { @class = "btn btn-sm btn-outline-secondary hvr" })
+                                @Html.ActionLink("Cancella", "Delete", new { id = item.PagamentoID }, new { @class = "btn btn-sm btn-outline-danger hvr" })
                             </div>
                         </div>
                     </div>
